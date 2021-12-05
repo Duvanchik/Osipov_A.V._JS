@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HomeWork_#1</title>
+</head>
+<body>
+    
+    <script>
+   
+         class Language {
+            #code;
+            #name;
+            #defaultLang;
+            #rtl;
+            constructor ({code, name, defaultLang, rtl}) {
+                this.#code = code;
+                this.#name = name;
+                this.#defaultLang = defaultLang;
+                this.#rtl = rtl;
+            }
+            get code (){
+                return this.#code;
+            }
+            get name (){
+                return this.#name;
+            }
+            get default (){
+                return this.#defaultLang;
+            }
+            get rtl (){
+                return this.#rtl;
+            }
+        }
+
+        const languageData = [
+        {
+        code: 'en',
+        name: 'English',
+        defaultLang: true,
+        rtl: false,
+        },
+        {
+        code: 'ru',
+        name: 'Russian',
+        defaultLang: false,
+        rtl: false,
+        },
+        {
+        code: 'ar',
+        name: 'Arabic',
+        defaultLang: false,
+        rtl: true,
+        },
+        ];
+        
+        let languageObjectsList = languageData.map(langObj => new Language(langObj));
+        let languageKeysList = languageData.map(langKey => langKey.code);
+
+        let langObjDict = {};
+        languageKeysList.forEach((key, index) => langObjDict[key] = languageObjectsList[index]);
+        
+
+        console.log(languageData);
+        console.log(languageObjectsList);
+        console.log(languageKeysList);
+        console.log(langObjDict);
+         
+        
+        console.log(languageObjectsList[1].code);
+        console.log(langObjDict['en'].name);
+
+        console.log("///////////////////////////////////");
+        
+        // const objKeysCalc = {};
+        // arr0.forEach((i) => {
+        //     objKeysCalc[i] = (objKeysCalc[i] || 0) + 1;
+        // });
+
+        const engLang = {
+            code: 'en',
+            name: 'English',
+            defaultLang: true,
+            rtl: false
+        };
+        
+        const rusLang = {
+            code: 'ru',
+            name: 'Russian',
+            defaultLang: false,
+            rtl: false
+        };
+
+        const arabLang = {
+            code: 'ar',
+            name: 'Arabic',
+            defaultLang: false,
+            rtl: true
+        };
+        let listLang = [engLang, rusLang, arabLang];
+        console.log(listLang);
+        console.log(rusLang.name);
+
+
+
+    </script>
+
+</body>
+</html>

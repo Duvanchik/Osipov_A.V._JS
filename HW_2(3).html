@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // есть массив объектов:
+        // [
+        // {
+        // name: 'Helen',
+        // heartFailure: false,
+        // age: 18
+        // },
+        // {
+        // name: 'John',
+        // heartFailure: true,
+        // age: 74
+        // },
+        // {
+        // name: 'Darya',
+        // heartFailure: false,
+        // age: 9
+        // },
+        // ]
+
+        // группа людей, массив объектов
+
+        // массив передается параметром в функцию которая валидирует группу
+        // - отдельной функцией валидируется возраст и если в группе есть младше 18, то вся группа не допускается
+        // - также отдельной функицей валадируется наличие болезней сердца и если хоть у одного есть, группа тоже не допускается
+
+        // в случае, если нет допуска по возрасту, написать кто из группы недопущен
+        // если по болезни сердца - аналогично
+
+        // если все ок, написать, что группа допущена
+
+        // реализовать через try catch finally
+
+        // в секции try две функции валидаторы возраста и болезней
+
+        // функции валидаторы должны бросать ошибку с описанием причины в случае если младше 18 или есть болезнь
+        // в catch эти ошибки обработать и вывести
+
+
+        const myPersonsList = [
+        {
+        name: 'Helen',
+        heartFailure: false,
+        age: 18
+        },
+        {
+        name: 'John',
+        heartFailure: true,
+        age: 74
+        },
+        {
+        name: 'Darya',
+        heartFailure: false,
+        age: 9
+        },
+        {
+        name: 'Yuriy',
+        heartFailure: false,
+        age: 15
+        },
+        {
+        name: 'Olga',
+        heartFailure: true,
+        age: 16
+        },
+        ]
+
+        let tooYoungPersonsNames = [];
+        let heartFailurePersonsNames = [];
+
+        function validateAge(listOfPersons){
+            return tooYoungPersonsNames = listOfPersons.filter(person => person.age < 18).map(person => person.name);           
+        }
+
+        function validateHealth(listOfPersons){
+            return heartFailurePersonsNames = listOfPersons.filter(person => person.heartFailure).map(person => person.name);           
+        }
+
+        try {
+            validateAge(myPersonsList);
+            validateHealth(myPersonsList);
+            if (tooYoungPersonsNames.length != 0 || heartFailurePersonsNames.length != 0){
+                throw "Группа не может быть допущена!";
+            }
+            console.log("Группа допущена!");
+        } catch (error) {
+            console.log(error);
+            if (tooYoungPersonsNames.length != 0){
+                console.log(`Лица, не достигшие 18 лет: \n ${tooYoungPersonsNames}`);
+            }
+            if (heartFailurePersonsNames.length != 0){
+                console.log(`Лица, имеющие проблемы со здоровьем: \n ${heartFailurePersonsNames}`);
+            }            
+        }
+
+        console.log('Конец программы!');
+
+
+
+    </script>
+    
+
+
+
+
+</body>
+</html>

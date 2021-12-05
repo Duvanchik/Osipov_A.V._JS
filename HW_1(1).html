@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HomeWork_#1</title>
+</head>
+<body>
+    <!-- 
+        есть массив из чисел, перемножить все четные числа. результат вывести в консоль.
+        пример: исходный массив [-7, 9, 4, -3, 2, 10] результат 80.
+
+        задача на reduce
+     -->
+
+    <script>
+        // есть массив из чисел, перемножить все четные числа. результат вывести в консоль.
+        // пример: исходный массив [-7, 9, 4, -3, 2, 10] результат 80.
+        // задача на reduce
+
+        const  arr0 = [-7, 9, 4, -3, 2, 10];
+        console.log(arr0);
+        const rezultEvenElementMultiply = arr0.reduce((accumulator, currentValue, index) => {
+            console.log("arr0 [" + index + "] = " + arr0[index]);
+            console.log("accumulator = " + accumulator);
+            console.log("currentValue = " + currentValue);
+            if (currentValue % 2 == 0) {
+                console.log("промежуточный результат умножения: " + (accumulator * currentValue));
+                return accumulator * currentValue;
+            } else {return accumulator};
+        }, 1);
+        console.log("Результат вычисления равен: " + rezultEvenElementMultiply);
+        </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // дан массив с числами
+    // [-8, 9, -7, 9, 0, 4, -8, -1]
+    // проверить, если в массиве больше отридцательных чисел, чем положительных, то бросить ошибку
+    // и обработать ее через try catch, вывести ошибку в консоль
+    // если ошибок нет, то написать в консоль, что массив проверен и ошибок нет
+
+    arr0 = [-1, -2, -3, -4, -5, -6, 1, 2, 3, 4, 5];
+    console.log(`проверим исходный массив: \n ${arr0}`);
+    let sumPositive = 0;
+    let sumNegative = 0;
+    arr0.forEach(element => {           
+        if (element >= 0) {
+            sumPositive++;
+        } else {
+            sumNegative++;
+        }        
+    });
+
+    console.log(`Положительных чисел: ${sumPositive}`);
+    console.log(`Отрицательных чисел: ${sumNegative}`);
+
+    try {
+        let compare = sumPositive < sumNegative;
+        console.log (`Положительных чисел меньше? \n ${compare}`);
+        if (compare) {
+            throw "Ошибка: отрицательных чисел больше чем положительных";
+        }
+        console.log('Массив проверен - ошибок нет!');
+    } catch (error) {
+        console.log (error);
+    }
+
+    console.log ('Конец программы');
+
+
+    </script>
+</body>
+</html>

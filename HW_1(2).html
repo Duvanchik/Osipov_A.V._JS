@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HomeWork_#1</title>
+</head>
+<body>
+    
+    <script>
+        // Есть массив из чисел, подсчитать сколько каждое число в нем встречается. 
+        // результат вывести в консоль в порядке убывания.
+
+        // пример: исходный массив: [8, -10, 4, 8, 4, 8, 5]
+        // результат: 8 - 3; 4 - 2; 5 - 1; -10 - 1.
+
+        // использовать object (key value pair) и sort
+
+        const arr0 = [8, -10, 4, 8, 4, 8, 5];
+        console.log(`Исходный массив: \n ${arr0}`);
+        const objKeysCalc = {};
+        let sortKeys = [];
+        arr0.forEach((i, index) => {
+            objKeysCalc[i] = (objKeysCalc[i] || 0) + 1;
+            console.log(`объект objKeysCalc на ${index} - й итерации arr0.forEach: \n ${JSON.stringify(objKeysCalc)}`);
+        });
+
+        console.log('Несортированный результирующий объект:');
+        console.log(objKeysCalc);
+        
+        let sortable = [];
+        for (let item in objKeysCalc) {
+            sortable.push([item, objKeysCalc[item]]);
+        }
+
+        console.log('Массив sorted из несортированного объекта:');
+        console.log(sortable);
+
+        sortable.sort(function(a, b) {
+            return b[1] - a[1];
+        });
+
+        console.log('Массив sorted после сортировки:');
+        console.log(sortable);
+
+        console.log('Результат:');
+
+        sortable.forEach(function(item){
+            console.log(item)
+        })
+
+       
+
+        
+        /*
+
+        const input = [8, 4, 1, 9, 10, 20, 12, 44, 14];
+
+        function mysort(a, b) {
+            if (a <= 10 && b <= 10) {
+            return b - a;
+            } else {
+            if (a > 10 && b > 10) {
+                return a - b;
+            } else {
+                return a - b;
+            }
+            }
+        }
+
+        //const result = input.sort(mysort);
+
+        const result = [...input];
+        for (let a = 0; a < result.length - 1; a++) {
+            for (let b = a + 1; b < result.length; b++) {
+            if (mysort(result[a], result[b]) > 0) {
+                const t = result[a];
+                result[a] = result[b];
+                result[b] = t;
+            }
+            }
+        }
+
+        console.log(`result: ${result}`);
+
+
+        */
+
+     
+    </script>
+
+</body>
+</html>

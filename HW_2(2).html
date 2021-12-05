@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // дан массив чисел
+    // const inputData = [10, 1, 0, 5, 47, 8, 3, 2, 4, 12, 14];
+    // получить массив на основании данного, в котором будут цифры в интервале от 3 до 15 (включительно оба)
+    // и за исключеем от 6 до 10 (включительно оба)
+
+    const inputData = [10, 1, 0, 5, 47, 8, 3, 2, 4, 12, 14];
+    console.log(`Исходный массив \n ${inputData}`);
+    const newData = inputData.filter(item => {
+        if ((item >= 3 && item < 6) || (item > 10 && item <= 15)){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    console.log(`Отфильтрованный массив \n ${newData}`);
+
+
+
+    </script>
+</body>
+</html>

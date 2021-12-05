@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //дан массив объектов с информацией о языках
+
+        // const languageData = [
+        // {
+        // code: 'en',
+        // name: 'English'
+        // default: true,
+        // rtl: false,
+        // },
+        // {
+        // code: 'ru',
+        // name: 'Russian'
+        // default: false,
+        // rtl: false,
+        // },
+        // {
+        // code: 'ar',
+        // name: 'Arabic'
+        // default: false,
+        // rtl: true,
+        // },
+        // ];
+
+        // описать объект для хранения данных об языке (задача medium)
+        // загружать данные в объект класса, так же как описано в задаче медиум
+        // в конструктор закидывается весь объект языка например
+        // {
+        // code: 'en',
+        // name: 'English'
+        // default: true,
+        // rtl: false,
+        // },
+        // и через деструктуризацию данные достаются и сохраняются в объекте
+
+        // через languageData.map
+        // создать массив объектов
+
+        // далее пару подзадач, реализовать в виде функций
+        // найти языки rtl
+        // найти дефолтный язык
+
+        // результат можно выложить как на github так и сюда комментарием (по желанию)
+
+
+        class Language {
+            #code;
+            #name;
+            #defaultLang;
+            #rtl;
+            constructor ({code, name, defaultLang, rtl}) {
+                this.#code = code;
+                this.#name = name;
+                this.#defaultLang = defaultLang;
+                this.#rtl = rtl;
+            }
+            get code (){
+                return this.#code;
+            }
+            get name (){
+                return this.#name;
+            }
+            get defaultLang (){
+                return this.#defaultLang;
+            }
+            get rtl (){
+                return this.#rtl;
+            }
+        }
+
+        const languageData = [
+            {
+                code: 'en',
+                name: 'English',
+                defaultLang: true,
+                rtl: false,
+            },
+            {
+                code: 'ru',
+                name: 'Russian',
+                defaultLang: false,
+                rtl: false,
+            },
+            {
+                code: 'ar',
+                name: 'Arabic',
+                defaultLang: false,
+                rtl: true,
+            },
+        ];
+
+        let languageObjectsList = languageData.map(langObj => new Language(langObj));
+        console.log("List of inferited by Language objects:");       
+        console.log(languageObjectsList);       
+
+        function isDefaultLang (objList) {
+            let defaultLangList = objList.filter(obj => obj.defaultLang);
+            let defaultLangNameList = defaultLangList.map(obj => obj.name);
+            return defaultLangNameList;
+        };
+
+        function isRtlLang (objList) {
+            let rtlLangList = objList.filter(obj => obj.rtl);
+            let rtlLangNameList = rtlLangList.map(obj => obj.name);
+            return rtlLangNameList;
+        };
+
+        console.log(`List of default == true languages names: \n ${isDefaultLang(languageObjectsList)}`);
+        console.log(`List of rtl == true languages names: \n ${isRtlLang(languageObjectsList)}`);
+
+        // let languageKeysList = languageData.map(langKey => langKey.code);
+        // let langObjDict = {};
+        // languageKeysList.forEach((key, index) => langObjDict[key] = languageObjectsList[index]);
+        // console.log(languageKeysList);
+        // console.log(langObjDict);
+        // console.log(languageObjectsList[1].code);
+        // console.log(langObjDict['en'].name);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // есть данные об языке
+        // const languageData = {
+        // code: 'en',
+        // name: 'English',
+        // rtl: false,
+        // defaultLang: true,
+        // };
+
+        // создать класс описывающий язык
+        // данные загрузить через конструктор, в конструктор кидается целый
+        // а через деструктуризацию достаются параметры и сохраняются в свойствах объекта
+
+        // доступ к свойствам объекта напрямую закрыт, все свойства должны быть приватными
+
+        // получить можно через get методы
+        // например get getIsDefault()
+
+        // результат можно выложить как на github так и сюда комментарием (по желанию)
+
+        const languageData = {
+            code: 'en',
+            name: 'English',
+            rtl: false,
+            defaultLang: true,
+        };            
+        
+        class Language {
+            #code;
+            #name;
+            #rtl;
+            #defaultLang;
+
+            constructor ({code, name, rtl, defaultLang}) {
+                this.#code = code;
+                this.#name = name;
+                this.#rtl = rtl;
+                this.#defaultLang = defaultLang;
+            }
+
+            get getCode() {
+                return this.#code;
+            }
+            get getName() {
+                return this.#name;
+            }
+            get getIsRtl() {
+                return this.#rtl;
+            }
+            get getIsDefault() {
+                return this.#defaultLang;
+            }
+        }
+
+        const englishLang = new Language(languageData);
+        console.log(englishLang);
+
+
+        console.log(`Code of language is ${englishLang.getCode}`);
+        console.log(`Name of language is ${englishLang.getName}`);
+        console.log(`Rtl of language is ${englishLang.getIsRtl}`);
+        console.log(`Is this language default? ${englishLang.getIsDefault}`);
+
+    </script>
+</body>
+</html>
