@@ -1,0 +1,7 @@
+<div class="child1">
+    <p>child-block works!</p>
+    <div id="test_div">test block to share data <br> {{child_text}}</div>
+    <label for="child_input">type message:</label>
+    <input type="text" id="child_input" #newMessage>
+    <button (click)="addNewMessage(newMessage.value)">Send a message to parent!</button>
+</div>

@@ -1,0 +1,6 @@
+<div class="parent1">
+    <p>parent-block works!</p>
+    <div id="test_div">test block to share data <br> {{parent_text}}</div> 
+    <p>{{message}}</p>
+</div>
+<app-child-block [child_text]="parent_text" (newMessageEvent)="changeMessage($event)"></app-child-block>
