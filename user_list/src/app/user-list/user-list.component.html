@@ -1,0 +1,7 @@
+<h3>List of users:</h3>
+<ul>
+    <app-el-of-llist *ngFor="let user of allUsers; index as i" [user]="user" [id]="i"></app-el-of-llist>
+</ul>
+        
+
+<button (click)="deleteUser()">Delete last User</button>
